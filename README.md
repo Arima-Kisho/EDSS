@@ -1,2 +1,2 @@
-# EDSPrompt
+# EDSS
 soon..
