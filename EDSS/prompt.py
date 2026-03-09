@@ -100,7 +100,3 @@ PROMPT_DICT_3Step = {
 def get_prompt_name(args):
     prompt_name = f"{args.dataset}L"
     return prompt_name
-
-"1. Extract the core entities.(Hint: Don't show explanations)\n"
-"2. Clarify the relationship between entities.\n"
-"3. Clarify the value of each entity.\n"
