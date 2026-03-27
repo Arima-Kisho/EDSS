@@ -70,7 +70,6 @@ def main():
         qs = [q.strip() for q in re.split(r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|!|,)\s', x) if q]
         numbered_qs = [f"{i + 1}. {q}" for i, q in enumerate(qs)]
 
-        # -1 is zero-cot; 0 is few-cot; 1 is ours; 
         complexity = 0
         if args.method in ["ef_cot_roberta", "ef_cot_deberta"]:
             complexity = markByBert(x)
