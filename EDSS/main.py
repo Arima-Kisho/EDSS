@@ -10,10 +10,6 @@ import jsonlines
 from collections import Counter
 
 
-
-# 实体间的因果关系
-# 实体纠错
-
 def main():
     args = parse_arguments()
     print('*****************************')
@@ -60,8 +56,8 @@ def main():
         item["question"] = x
         if args.dataset in ["aqua", "bigbench_date", "object_tracking", "commonsensqa"]:
             parts = x.split("Answer Choices:")
-            x = parts[0].strip()  # 问题部分
-            c = parts[1].strip()  # 选项部分
+            x = parts[0].strip() 
+            c = parts[1].strip()  
             item["choices"] = c
         context, core = split_question(x)
         y = y[0].strip()
@@ -96,7 +92,6 @@ def main():
             x = demo + x
             z = generate_response(x, model)
             z = postprocess_output(z)
-            # z = z[0].split("\n\n")[0] 私下用
             pred = z
             print(x, pred)
         elif complexity == 1:
@@ -184,7 +179,7 @@ def main():
             with jsonlines.open(base_error_file, mode="a") as error_writer:
                 error_log = {
                     "error_question": x,
-                    "error_response": z,  # 错误的回答过程
+                    "error_response": z, 
                     "error_answer": pred
                 }
                 error_writer.write(error_log)
